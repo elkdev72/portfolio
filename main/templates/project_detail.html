@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ project.title }} - My Portfolio{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8">
+        {% if project.image %}
+        <img src="{{ project.image.url }}" class="img-fluid rounded" alt="{{ project.title }}">
+        {% endif %}
+        <h1 class="mt-4">{{ project.title }}</h1>
+        <p class="lead">{{ project.description }}</p>
+        <div class="mb-4">
+            <h5>Technologies Used:</h5>
+            <p>{{ project.technologies }}</p>
+        </div>
+        {% if project.project_url or project.github_url %}
+        <div class="mb-4">
+            {% if project.project_url %}
+            <a href="{{ project.project_url }}" class="btn btn-primary me-2" target="_blank">Live Demo</a>
+            {% endif %}
+            {% if project.github_url %}
+            <a href="{{ project.github_url }}" class="btn btn-dark" target="_blank">View on GitHub</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

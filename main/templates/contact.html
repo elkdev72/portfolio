@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact - My Portfolio{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8">
+        <h1 class="mb-4">Get in Touch</h1>
+        <p class="lead">I'm always open to new opportunities and collaborations.</p>
+        
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Contact Information</h5>
+                <p class="card-text">
+                    <i class="fas fa-envelope me-2"></i>
+                    <a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a>
+                </p>
+                {% if personal_info.linkedin %}
+                <p class="card-text">
+                    <i class="fab fa-linkedin me-2"></i>
+                    <a href="{{ personal_info.linkedin }}" target="_blank">LinkedIn Profile</a>
+                </p>
+                {% endif %}
+                {% if personal_info.github %}
+                <p class="card-text">
+                    <i class="fab fa-github me-2"></i>
+                    <a href="{{ personal_info.github }}" target="_blank">GitHub Profile</a>
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
